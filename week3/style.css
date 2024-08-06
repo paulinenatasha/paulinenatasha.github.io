@@ -1,0 +1,48 @@
+* {
+  color: hotpink;
+}
+/* this is a universal selector */
+/* h1 { color: palevioletred;} */
+p,
+h3 {
+  color: darksalmon;
+}
+.my-class {
+  color: blueviolet;
+}
+/* this is a class selector */
+p > strong {
+  color: black;
+}
+p {
+  color: magenta;
+  border: 1px solid red;
+  padding: 30px;
+  /* width: 200px; */
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  background-color: beige;
+}
+article {
+  text-align: center;
+  border: 1px dashed darkblue;
+  padding: 10px;
+  background-color: wheat;
+}
+.padding-style {
+  padding: 10px;
+  border: 1px;
+}
+h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 10px;
+}
+.pacifico {
+  font-family: "Lobster", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
