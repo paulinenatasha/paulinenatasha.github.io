@@ -54,7 +54,7 @@ body {
   font-weight: 800;
   text-align: start;
   padding: 25px;
-  margin-bottom: 25px;
+  margin-bottom: 5px;
 }
 #section1 {
   background-color: #cfb0fb;
@@ -67,4 +67,23 @@ body {
 }
 #section4 {
   background-color: #def266;
+}
+.border {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 15px;
+}
+.box {
+  width: 45%;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  border-radius: 20px;
+  border: solid white;
+  margin: 10px;
+  font-family: poppins;
+  color: white;
 }
