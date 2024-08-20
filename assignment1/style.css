@@ -74,6 +74,14 @@ body {
   align-items: center;
   padding: 15px;
 }
+.layout1 {
+  display: grid;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 15px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
 .box {
   width: fit-content;
   height: fit-content;
@@ -110,8 +118,8 @@ body {
   background-color: #ffd0bc;
 }
 #question2 {
-  background-color: #f8babd;
+  background-color: #b2d2fb;
 }
 #answer2 {
-  background-color: #fdefbd;
+  background-color: #dad3fe;
 }
