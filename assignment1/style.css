@@ -28,9 +28,9 @@ body {
   margin-bottom: -15px;
 }
 .subtitle {
-  font-size: 5rem;
+  font-size: 6rem;
 }
-button {
+.button {
   background-color: white;
   color: black;
   font-weight: 500;
@@ -39,4 +39,32 @@ button {
   border-radius: 15px;
   font-size: 12px;
   cursor: pointer;
+}
+.image {
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.section-title {
+  color: white;
+  font-family: poppins;
+  font-size: 3rem;
+  font-weight: 800;
+  text-align: start;
+  padding: 25px;
+  margin-bottom: 25px;
+}
+#section1 {
+  background-color: #cfb0fb;
+}
+#section2 {
+  background-color: #fba076;
+}
+#section3 {
+  background-color: #a5edf5;
+}
+#section4 {
+  background-color: #def266;
 }
