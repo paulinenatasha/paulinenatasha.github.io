@@ -73,6 +73,7 @@ body {
   justify-content: center;
   align-items: center;
   padding: 15px;
+  gap: 20px;
 }
 .layout1 {
   display: grid;
@@ -91,7 +92,6 @@ body {
   box-sizing: border-box;
   border-radius: 20px;
   border: solid white;
-  margin: 10px;
   font-family: poppins;
   color: white;
   padding: 10px;
