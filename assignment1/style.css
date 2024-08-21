@@ -81,12 +81,12 @@ body {
   padding: 15px;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  gap: 0;
+  gap: 20px;
 }
 .box {
-  width: 500px;
+  width: 100%;
   height: fit-content;
-  display: grid;
+  display: flex;
   justify-content: flex-start;
   box-sizing: border-box;
   border-radius: 20px;
