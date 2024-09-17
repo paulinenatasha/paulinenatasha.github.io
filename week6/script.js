@@ -45,7 +45,7 @@ function addMe() {
 }
 
 let removeButton = document.querySelector("#remove-button");
-removeButton.addEventListener("click", removeMe);
+removeButton.addEventListener("dbclick", removeMe);
 function removeMe() {
   let lastBox = boxContainer.lastElementChild;
   console.log(lastBox);
@@ -53,4 +53,23 @@ function removeMe() {
     lastBox.remove();
   }
   count--;
+}
+
+boxContainer.addEventListener("mouseover", dropMe);
+function dropMe() {
+  boxContainer.classList.add("drop");
+}
+boxContainer.addEventListener("mouseout", pickMe);
+
+function pickMe() {
+  boxContainer.classList.remove("drop");
+}
+
+addButton.addEventListener("mouseover", colorMe);
+addButton.addEventListener("mouseout", decolorMe);
+function colorMe() {
+  addButton.classList.add("purple-box");
+}
+function decolorMe() {
+  addButton.classList.remove("purple-box");
 }
