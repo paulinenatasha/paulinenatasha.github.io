@@ -1,0 +1,52 @@
+.landingpage {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+#time {
+  text-align: center;
+  padding: 50px;
+  font-size: 3rem;
+  color: #866255;
+  font-family: poppins;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-right: 5rem;
+}
+
+.button {
+  background-color: #dbcbbb;
+  width: 50px;
+  padding: 10px;
+  border-radius: 15px;
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.control-btn {
+  background-color: #c6afa2;
+  width: 35px;
+  padding: 7px;
+  border-radius: 10px;
+  margin: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.music-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 3rem;
+  width: 100%;
+}
