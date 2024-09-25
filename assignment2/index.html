@@ -18,6 +18,8 @@
   <body background="room.png" class="landingpage">
     <div id="time"></div>
 
+    <audio src="lofi.mp3" id="music" loop></audio>
+
     <!-- Control Section -->
     <div class="music-controls">
       <img
@@ -32,15 +34,20 @@
         src="https://img.icons8.com/metro/100/mute.png"
         alt="mute button"
       />
-      <img
-        class="control-btn"
-        id="shuffle-btn"
-        src="https://img.icons8.com/android/100/shuffle.png"
-        alt="shuffle button"
-      />
+      <div class="slide-container">
+        <input
+          class="slider"
+          id="volume-slider"
+          type="range"
+          min="0"
+          max="100"
+          value="50"
+          alt="volume slider"
+        />
+      </div>
     </div>
 
-    <!-- Additional Sounds -->
+    <!-- Additional Background Sounds -->
     <div class="button-container">
       <img
         class="button"
@@ -48,27 +55,28 @@
         src="https://img.icons8.com/sf-regular-filled/100/rain.png"
         alt="rain icon"
       />
-      <audio src="sounds/wave.mp3" id="wave-sound" loop></audio>
+      <audio src="./sounds/rain.mp3" id="rain-sound" loop></audio>
       <img
         class="button"
         id="wave-button"
         src="https://img.icons8.com/ios-filled/100/ocean-wave.png"
         alt="wave icon"
       />
+      <audio src="./sounds/wave.mp3" id="wave-sound" loop></audio>
       <img
         class="button"
         id="bird-button"
         src="https://img.icons8.com/fluency-systems-filled/100/bird.png"
         alt="bird icon"
       />
-      <audio src="sounds/birds.mp3" id="bird-sound" loop></audio>
+      <audio src="./sounds/bird.mp3" id="bird-sound" loop></audio>
       <img
         class="button"
         id="fire-button"
         src="https://img.icons8.com/ios-glyphs/100/fire-element--v1.png"
         alt="fire icon"
       />
-      <audio src="sounds/fire.mp3" id="fire-sound" loop></audio>
+      <audio src="./sounds/fire.mp3" id="fire-sound" loop></audio>
     </div>
   </body>
 </html>
