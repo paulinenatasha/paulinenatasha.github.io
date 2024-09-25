@@ -18,9 +18,12 @@
   <body background="room.png" class="landingpage">
     <div id="time"></div>
 
-    <audio src="lofi.mp3" id="music" loop></audio>
-
     <!-- Control Section -->
+    <div class="audio-player">
+      <audio id="custom-audio-player">
+        <source src="lofi.mp3" />
+      </audio>
+    </div>
     <div class="music-controls">
       <img
         class="control-btn"
@@ -55,7 +58,7 @@
         src="https://img.icons8.com/sf-regular-filled/100/rain.png"
         alt="rain icon"
       />
-      <audio src="./sounds/rain.mp3" id="rain-sound" loop></audio>
+      <audio src="sounds/rain.mp3" id="rain-sound" loop></audio>
       <img
         class="button"
         id="wave-button"

@@ -6,22 +6,22 @@ function updateClock() {
 setInterval(updateClock, 1000);
 
 // Control Functions
-const myMusic = document.querySelector("#custom-music-player");
-console.log(myMusic);
+const myAudio = document.querySelector("#custom-audio-player");
+console.log(myAudio);
 const playPauseBtn = document.querySelector("#play-pause-btn");
 console.log(playPauseBtn);
 const muteUnmuteBtn = document.querySelector("#mute-unmute-btn");
 
-playPauseBtn.addEventListener("click", togglePlay);
+playPauseBtn.addEventListener("click", togglePlayPause);
 muteUnmuteBtn.addEventListener("click", toggleAudio);
 
 function togglePlayPause() {
-  if (myMusic.paused || myMusic.ended) {
-    myMusic.play();
-    playPauseImg.src = "https://img.icons8.com/plumpy/100/play--v1.png";
+  if (myAudio.paused || myAudio.ended) {
+    myAudio.play();
+    playPauseBtn.src = "https://img.icons8.com/ios-glyphs/100/pause--v1.png";
   } else {
-    myMusic.pause();
-    playPauseImg.src = "https://img.icons8.com/ios-glyphs/100/pause--v1.png";
+    myAudio.pause();
+    playPauseBtn.src = "https://img.icons8.com/plumpy/100/play--v1.png";
   }
 }
 
@@ -31,8 +31,7 @@ const rainBtn = document.querySelector("#rain-button");
 console.log(rainBtn);
 const rainSound = document.querySelector("#rain-sound");
 console.log(rainSound);
-
-rainBtn.addEventListener("click", toggleRainSound);
+rainSound.addEventListener("click", toggleRainSound);
 
 function toggleRainSound() {
   if (rainSound.paused) {
@@ -80,3 +79,5 @@ function toggleFireSound() {
     fireSound.pause();
   }
 }
+
+// Main Sound
