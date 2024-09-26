@@ -68,16 +68,14 @@ updateMuteBtn();
 // Additional Background Sounds Functions
 // Rain Sound
 const rainBtn = document.querySelector("#rain-button");
-console.log(rainBtn);
 const rainSound = document.querySelector("#rain-sound");
-console.log(rainSound);
-
 rainBtn.addEventListener("click", toggleRainSound);
+rainSound.volume = 0.2;
 
 function toggleRainSound() {
   if (rainSound.paused) {
     rainSound.play();
-    rainBtn.style.backgroundColor = "#c0af9e";
+    rainBtn.style.backgroundColor = "#ae9e8d";
   } else {
     rainSound.pause();
     rainBtn.style.backgroundColor = "#dbcbbb";
@@ -88,12 +86,15 @@ function toggleRainSound() {
 const waveBtn = document.querySelector("#wave-button");
 const waveSound = document.querySelector("#wave-sound");
 waveBtn.addEventListener("click", toggleWaveSound);
+waveSound.volume = 0.5;
 
 function toggleWaveSound() {
   if (waveSound.paused) {
     waveSound.play();
+    waveBtn.style.backgroundColor = "#ae9e8d";
   } else {
     waveSound.pause();
+    waveBtn.style.backgroundColor = "#dbcbbb";
   }
 }
 
@@ -101,12 +102,15 @@ function toggleWaveSound() {
 const birdBtn = document.querySelector("#bird-button");
 const birdSound = document.querySelector("#bird-sound");
 birdBtn.addEventListener("click", toggleBirdSound);
+birdSound.volume = 0.5;
 
 function toggleBirdSound() {
   if (birdSound.paused) {
     birdSound.play();
+    birdBtn.style.backgroundColor = "#ae9e8d";
   } else {
     birdSound.pause();
+    birdBtn.style.backgroundColor = "#dbcbbb";
   }
 }
 
@@ -114,12 +118,15 @@ function toggleBirdSound() {
 const fireBtn = document.querySelector("#fire-button");
 const fireSound = document.querySelector("#fire-sound");
 fireBtn.addEventListener("click", toggleFireSound);
+fireSound.volume = 0.3;
 
 function toggleFireSound() {
   if (fireSound.paused) {
     fireSound.play();
+    fireBtn.style.backgroundColor = "#ae9e8d";
   } else {
     fireSound.pause();
+    fireBtn.style.backgroundColor = "#dbcbbb";
   }
 }
 
