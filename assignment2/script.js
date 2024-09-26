@@ -11,9 +11,15 @@ console.log(myAudio);
 const playPauseBtn = document.querySelector("#play-pause-btn");
 console.log(playPauseBtn);
 const muteUnmuteBtn = document.querySelector("#mute-unmute-btn");
+console.log(muteUnmuteBtn);
+const volumeSlider = document.querySelector("#volume-slider");
+console.log(volumeSlider);
+
+let previousVolume = 0.5;
 
 playPauseBtn.addEventListener("click", togglePlayPause);
-muteUnmuteBtn.addEventListener("click", toggleAudio);
+muteUnmuteBtn.addEventListener("click", toggleMute);
+volumeSlider.addEventListener("input", toggleVolume);
 
 function togglePlayPause() {
   if (myAudio.paused || myAudio.ended) {
@@ -25,19 +31,56 @@ function togglePlayPause() {
   }
 }
 
+function toggleMute() {
+  if (myAudio.muted) {
+    myAudio.muted = false;
+    myAudio.volume = previousVolume;
+    volumeSlider.value = previousVolume;
+    updateMuteBtn();
+  } else {
+    previousVolume = myAudio.volume;
+    myAudio.muted = true;
+    volumeSlider.value = 0;
+    updateMuteBtn();
+  }
+}
+
+function toggleVolume() {
+  const volume = parseFloat(volumeSlider.value);
+  myAudio.volume = volume;
+  myAudio.muted = volume === 0;
+  previousVolume = volume > 0 ? volume : previousVolume;
+  updateMuteBtn();
+}
+
+function updateMuteBtn() {
+  if (myAudio.muted || myAudio.volume === 0) {
+    muteUnmuteBtn.src = "https://img.icons8.com/metro/100/mute.png";
+  } else {
+    muteUnmuteBtn.src =
+      "https://img.icons8.com/material-rounded/100/medium-volume.png";
+  }
+}
+myAudio.volume = 0.5;
+volumeSlider.value = 0.5;
+updateMuteBtn();
+
 // Additional Background Sounds Functions
 // Rain Sound
 const rainBtn = document.querySelector("#rain-button");
 console.log(rainBtn);
 const rainSound = document.querySelector("#rain-sound");
 console.log(rainSound);
-rainSound.addEventListener("click", toggleRainSound);
+
+rainBtn.addEventListener("click", toggleRainSound);
 
 function toggleRainSound() {
   if (rainSound.paused) {
     rainSound.play();
+    rainBtn.style.backgroundColor = "#c0af9e";
   } else {
     rainSound.pause();
+    rainBtn.style.backgroundColor = "#dbcbbb";
   }
 }
 
