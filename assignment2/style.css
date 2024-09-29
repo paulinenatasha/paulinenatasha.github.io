@@ -91,7 +91,7 @@
   appearance: none;
   width: 100%;
   height: 10px;
-  background: linear-gradient(to right, #866255, #c0af9e);
+  background: linear-gradient(to left, #866255, #c0af9e);
   -webkit-transition: 0.2s;
   transition: 0.2s;
   border-radius: 10px;
