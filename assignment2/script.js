@@ -65,7 +65,7 @@ myAudio.volume = 0.5;
 volumeSlider.value = 0.5;
 updateMuteBtn();
 
-// Additional Background Sounds Functions
+// Additional background sounds functions
 // Rain Sound
 const rainBtn = document.querySelector("#rain-button");
 const rainSound = document.querySelector("#rain-sound");
@@ -130,4 +130,60 @@ function toggleFireSound() {
   }
 }
 
-// Main Sound
+// To Do List
+// Get the necessary elements
+const inputBox = document.getElementById("input-box");
+const listContainer = document.getElementById("list-container");
+
+// Function to add a new task
+function addTask() {
+  if (inputBox.value === "") {
+    alert("You must write something!");
+    return; // Exit if input is empty
+  }
+
+  let li = document.createElement("li");
+
+  // Create a circle for the checkbox
+  let circle = document.createElement("span");
+  circle.className = "circle";
+  circle.innerHTML = "〇"; // Empty circle character
+  li.appendChild(circle);
+
+  // Create a span for the task text
+  let taskText = document.createElement("span");
+  taskText.className = "task-text";
+  taskText.textContent = inputBox.value;
+  li.appendChild(taskText);
+
+  // Create a delete button
+  let deleteBtn = document.createElement("span");
+  deleteBtn.className = "delete-btn";
+  deleteBtn.innerHTML = "\u00d7"; // Cross character
+  li.appendChild(deleteBtn);
+
+  listContainer.appendChild(li);
+
+  inputBox.value = ""; // Clear input box
+}
+
+// Event listener for the list container
+listContainer.addEventListener("click", function (e) {
+  if (
+    e.target.classList.contains("circle") ||
+    e.target.classList.contains("task-text")
+  ) {
+    const listItem = e.target.closest("li");
+    listItem.classList.toggle("checked");
+
+    // Change circle appearance
+    const circle = listItem.querySelector(".circle");
+    if (listItem.classList.contains("checked")) {
+      circle.innerHTML = "⬤"; // Filled circle character
+    } else {
+      circle.innerHTML = "〇"; // Empty circle character
+    }
+  } else if (e.target.classList.contains("delete-btn")) {
+    e.target.closest("li").remove(); // Remove the task when delete button is clicked
+  }
+});
