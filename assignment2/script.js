@@ -5,15 +5,13 @@ function updateClock() {
 }
 setInterval(updateClock, 1000);
 
-// Control Functions
+//------------------------------------------------------------------------------------
+
+// Audio Control Functions
 const myAudio = document.querySelector("#custom-audio-player");
-console.log(myAudio);
 const playPauseBtn = document.querySelector("#play-pause-btn");
-console.log(playPauseBtn);
 const muteUnmuteBtn = document.querySelector("#mute-unmute-btn");
-console.log(muteUnmuteBtn);
 const volumeSlider = document.querySelector("#volume-slider");
-console.log(volumeSlider);
 
 let previousVolume = 0.5;
 
@@ -31,18 +29,12 @@ function togglePlayPause() {
   }
 }
 
+// The mute and volume controls are linked, so when the volume is set to zero, the mute button has to automatically activate to accurately represent the audio status.
 function toggleMute() {
-  if (myAudio.muted) {
-    myAudio.muted = false;
-    myAudio.volume = previousVolume;
-    volumeSlider.value = previousVolume;
-    updateMuteBtn();
-  } else {
-    previousVolume = myAudio.volume;
-    myAudio.muted = true;
-    volumeSlider.value = 0;
-    updateMuteBtn();
-  }
+  myAudio.muted = !myAudio.muted;
+  myAudio.volume = myAudio.muted ? 0 : previousVolume; //After clicking the unmute button, the audio volume will be restored to the most recent level set by the user before muting.
+  volumeSlider.value = myAudio.volume;
+  updateMuteBtn();
 }
 
 function toggleVolume() {
@@ -54,136 +46,77 @@ function toggleVolume() {
 }
 
 function updateMuteBtn() {
-  if (myAudio.muted || myAudio.volume === 0) {
-    muteUnmuteBtn.src = "https://img.icons8.com/metro/100/mute.png";
-  } else {
-    muteUnmuteBtn.src =
-      "https://img.icons8.com/material-rounded/100/medium-volume.png";
-  }
+  muteUnmuteBtn.src =
+    myAudio.muted || myAudio.volume === 0
+      ? "https://img.icons8.com/metro/100/mute.png"
+      : "https://img.icons8.com/material-rounded/100/medium-volume.png";
 }
+
 myAudio.volume = 0.5;
 volumeSlider.value = 0.5;
 updateMuteBtn();
 
+//------------------------------------------------------------------------------------
+
 // Additional background sounds functions
-// Rain Sound
-const rainBtn = document.querySelector("#rain-button");
-const rainSound = document.querySelector("#rain-sound");
-rainBtn.addEventListener("click", toggleRainSound);
-rainSound.volume = 0.2;
+//I sought assistance to organize a bit of my code by implementing a unified function for all background sounds, eliminating repetitive code for individual buttons and sounds, which not only reduced clutter but also enhanced consistency and simplified maintenance.
+function setupBackgroundSound(buttonId, soundId, volume) {
+  const button = document.querySelector(`#${buttonId}`);
+  const sound = document.querySelector(`#${soundId}`);
+  sound.volume = volume;
 
-function toggleRainSound() {
-  if (rainSound.paused) {
-    rainSound.play();
-    rainBtn.style.backgroundColor = "#ae9e8d";
-  } else {
-    rainSound.pause();
-    rainBtn.style.backgroundColor = "#dbcbbb";
-  }
+  button.addEventListener("click", () => {
+    if (sound.paused) {
+      sound.play();
+      button.style.backgroundColor = "#ae9e8d";
+    } else {
+      sound.pause();
+      button.style.backgroundColor = "#dbcbbb";
+    }
+  });
 }
 
-// Wave Sound
-const waveBtn = document.querySelector("#wave-button");
-const waveSound = document.querySelector("#wave-sound");
-waveBtn.addEventListener("click", toggleWaveSound);
-waveSound.volume = 0.5;
+setupBackgroundSound("rain-button", "rain-sound", 0.2);
+setupBackgroundSound("wave-button", "wave-sound", 0.5);
+setupBackgroundSound("bird-button", "bird-sound", 0.5);
+setupBackgroundSound("fire-button", "fire-sound", 0.3);
 
-function toggleWaveSound() {
-  if (waveSound.paused) {
-    waveSound.play();
-    waveBtn.style.backgroundColor = "#ae9e8d";
-  } else {
-    waveSound.pause();
-    waveBtn.style.backgroundColor = "#dbcbbb";
-  }
-}
-
-// Bird Sound
-const birdBtn = document.querySelector("#bird-button");
-const birdSound = document.querySelector("#bird-sound");
-birdBtn.addEventListener("click", toggleBirdSound);
-birdSound.volume = 0.5;
-
-function toggleBirdSound() {
-  if (birdSound.paused) {
-    birdSound.play();
-    birdBtn.style.backgroundColor = "#ae9e8d";
-  } else {
-    birdSound.pause();
-    birdBtn.style.backgroundColor = "#dbcbbb";
-  }
-}
-
-// Fire Sound
-const fireBtn = document.querySelector("#fire-button");
-const fireSound = document.querySelector("#fire-sound");
-fireBtn.addEventListener("click", toggleFireSound);
-fireSound.volume = 0.3;
-
-function toggleFireSound() {
-  if (fireSound.paused) {
-    fireSound.play();
-    fireBtn.style.backgroundColor = "#ae9e8d";
-  } else {
-    fireSound.pause();
-    fireBtn.style.backgroundColor = "#dbcbbb";
-  }
-}
+//------------------------------------------------------------------------------------
 
 // To Do List
-// Get the necessary elements
+// I watched a Youtube tutorial on how to code this to do list ("https://www.youtube.com/watch?v=G0jO8kUrg-I")
 const inputBox = document.getElementById("input-box");
 const listContainer = document.getElementById("list-container");
 
-// Function to add a new task
 function addTask() {
   if (inputBox.value === "") {
     alert("You must write something!");
-    return; // Exit if input is empty
+    return;
   }
 
-  let li = document.createElement("li");
-
-  // Create a circle for the checkbox
-  let circle = document.createElement("span");
-  circle.className = "circle";
-  circle.innerHTML = "〇"; // Empty circle character
-  li.appendChild(circle);
-
-  // Create a span for the task text
-  let taskText = document.createElement("span");
-  taskText.className = "task-text";
-  taskText.textContent = inputBox.value;
-  li.appendChild(taskText);
-
-  // Create a delete button
-  let deleteBtn = document.createElement("span");
-  deleteBtn.className = "delete-btn";
-  deleteBtn.innerHTML = "\u00d7"; // Cross character
-  li.appendChild(deleteBtn);
+  const li = document.createElement("li");
+  li.innerHTML = `
+    <span class="circle">〇</span>
+    <span class="task-text">${inputBox.value}</span>
+    <span class="delete-btn">&times;</span>
+  `;
 
   listContainer.appendChild(li);
-
-  inputBox.value = ""; // Clear input box
+  inputBox.value = "";
 }
 
-// Event listener for the list container
 listContainer.addEventListener("click", function (e) {
-  if (
-    e.target.classList.contains("circle") ||
-    e.target.classList.contains("task-text")
-  ) {
-    const listItem = e.target.closest("li");
-    listItem.classList.toggle("checked");
+  const target = e.target;
+  const listItem = target.closest("li");
 
-    // Change circle appearance
+  if (
+    target.classList.contains("circle") ||
+    target.classList.contains("task-text")
+  ) {
+    listItem.classList.toggle("checked");
     const circle = listItem.querySelector(".circle");
-    if (listItem.classList.contains("checked")) {
-      circle.innerHTML = "⬤"; // Filled circle character
-    } else {
-      circle.innerHTML = "〇"; // Empty circle character
-    }
-  } else if (e.target.classList.contains("delete-btn")) {
-    e.target.closest("li").remove(); // Remove the task when delete button is clicked
+    circle.innerHTML = listItem.classList.contains("checked") ? "⬤" : "〇";
+  } else if (target.classList.contains("delete-btn")) {
+    listItem.remove();
   }
 });
