@@ -1,3 +1,4 @@
+/* I chose a minimalist background with the same brownish beige colour palette for the soothing appearance */
 .landingpage {
   background-position: center;
   background-repeat: no-repeat;
@@ -5,6 +6,8 @@
   background-size: cover;
 }
 
+/* Clock styling */
+/* In order for the users to check the time easily, I placed them at the top and center */
 #time {
   text-align: center;
   padding: 50px;
@@ -13,6 +16,7 @@
   font-family: poppins;
 }
 
+/* Additional sounds buttons */
 .button-container {
   display: flex;
   flex-direction: column;
