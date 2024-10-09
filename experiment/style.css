@@ -44,30 +44,27 @@ h2 {
   margin-top: -10px;
 }
 
+/* Image Positions */
 .img1 {
   position: absolute;
   top: 85px;
   right: 500px;
 }
-
 .img2 {
   position: absolute;
   top: 280px;
   left: 130px;
 }
-
 .img3 {
   position: absolute;
   bottom: 150px;
   right: 15%;
 }
-
 .img4 {
   position: absolute;
   top: 320px;
   left: 200px;
 }
-
 .img5 {
   position: absolute;
   top: 95px;
