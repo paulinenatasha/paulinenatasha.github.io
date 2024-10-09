@@ -3,7 +3,7 @@ function updateClock() {
   const now = new Date();
   document.getElementById("time").innerText = now.toLocaleTimeString();
 }
-setInterval(updateClock, 1000);
+setInterval(updateClock, 1000); //Updates in real time, every 1000 millisecond
 
 //------------------------------------------------------------------------------------
 

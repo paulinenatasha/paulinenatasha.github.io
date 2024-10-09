@@ -38,6 +38,7 @@
   cursor: pointer;
 }
 
+/* I added a hover transition so the users are more aware that the buttons are clickable */
 .button:hover {
   margin-top: 10px;
   background-color: #c0af9e;
