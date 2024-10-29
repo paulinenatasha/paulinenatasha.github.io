@@ -3,6 +3,7 @@ export default class Player {
   walkAnimationTimer = this.WALK_ANIMATION_TIMER;
   dogRunImages = [];
 
+  // Jumping Properties
   jumpPressed = false;
   jumpInProgress = false;
   falling = false;

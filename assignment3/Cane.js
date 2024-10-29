@@ -8,6 +8,7 @@ export default class Cane {
     this.image = image;
   }
 
+  // The movement of the cane will be affected by speed, game speed, frame time, and scale ratio
   update(speed, gameSpeed, frameTimeDelta, scaleRatio) {
     this.x -= speed * gameSpeed * frameTimeDelta * scaleRatio;
   }
@@ -16,6 +17,7 @@ export default class Cane {
     this.ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
   }
 
+  // Collision detection
   collideWith(sprite) {
     const adjustBy = 1.4;
     if (

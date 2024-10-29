@@ -14,10 +14,12 @@ export default class Ground {
     this.groundImage.src = "images/ground.png";
   }
 
+  // Move the ground based by the game speed, frame time, ground speed, and scale ratio
   update(gameSpeed, frameTimeDelta) {
     this.x -= gameSpeed * frameTimeDelta * this.speed * this.scaleRatio;
   }
 
+  // Same as the background image, I drew 2 for a seamless loop
   draw() {
     this.ctx.drawImage(
       this.groundImage,

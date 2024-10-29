@@ -17,6 +17,7 @@ export default class CaneController {
     this.setNextCaneTime();
   }
 
+  // Cane Generation Timing
   setNextCaneTime() {
     const num = this.getRandomNumber(
       this.CANE_INTERVAL_MIN,
@@ -30,6 +31,7 @@ export default class CaneController {
     return Math.floor(Math.random() * (max - min + 1) + min);
   }
 
+  // Create New Canes
   createCane() {
     const index = this.getRandomNumber(0, this.caneImages.length - 1);
     const caneImage = this.caneImages[index];
@@ -47,6 +49,7 @@ export default class CaneController {
     this.cane.push(cane);
   }
 
+  // Manage Cane Creations and Updates
   update(gameSpeed, frameTimeDelta) {
     if (this.nextCaneInterval <= 0) {
       this.createCane();
@@ -54,10 +57,12 @@ export default class CaneController {
     }
     this.nextCaneInterval -= frameTimeDelta;
 
+    // updates all existing canes
     this.cane.forEach((cane) => {
       cane.update(this.speed, gameSpeed, frameTimeDelta, this.scaleRatio);
     });
 
+    // remove off-screen canes
     this.cane = this.cane.filter((cane) => cane.x > -cane.width);
   }
 
