@@ -1,3 +1,4 @@
+// I organized each functions in different javascript files to make the files neater
 import Player from "./Player.js";
 import Ground from "./Ground.js";
 import CaneController from "./CaneController.js";
@@ -6,23 +7,26 @@ import Score from "./Score.js";
 const canvas = document.getElementById("game");
 const ctx = canvas.getContext("2d");
 
-const GAME_SPEED_START = 1; // 1.0
+// The speed of the game will increase constantly
+const GAME_SPEED_START = 1;
 const GAME_SPEED_INCREMENT = 0.00001;
 
+// Game functions
 const GAME_WIDTH = 800;
 const GAME_HEIGHT = 200;
-const PLAYER_WIDTH = 94 / 1.5; //62
-const PLAYER_HEIGHT = 70 / 1.5; //46
+const PLAYER_WIDTH = 94 / 1.5;
+const PLAYER_HEIGHT = 70 / 1.5;
 const MAX_JUMP_HEIGHT = GAME_HEIGHT;
 const MIN_JUMP_HEIGHT = 150;
 const GROUND_WIDTH = 2400;
-const GROUND_HEIGHT = 24;
+const GROUND_HEIGHT = 15;
 const GROUND_AND_CANE_SPEED = 0.5;
 
+// Randomized candy cane height and width for variation
 const CANE_CONFIG = [
   { width: 48 / 1.5, height: 100 / 1.5, image: "images/cane.png" },
   { width: 98 / 1.5, height: 100 / 1.5, image: "images/cane2.png" },
-  { width: 48 / 1.5, height: 70 / 1.5, image: "images/cane.png" },
+  { width: 42 / 1.5, height: 70 / 1.5, image: "images/cane.png" },
 ];
 
 //Game Objects
@@ -91,6 +95,7 @@ function setScreen() {
   createSprites();
 }
 
+// Screen width and height scaling
 setScreen();
 if (screen.orientation) {
   screen.orientation.addEventListener("change", setScreen);
@@ -107,7 +112,7 @@ function getScaleRatio() {
     document.documentElement.clientWidth
   );
 
-  //window is wider than the game width
+  // if the window is wider than the game width
   if (screenWidth / screenHeight < GAME_WIDTH / GAME_HEIGHT) {
     return screenWidth / GAME_WIDTH;
   } else {
@@ -116,10 +121,11 @@ function getScaleRatio() {
 }
 
 function showGameOver() {
-  const fontSize = 70 * scaleRatio;
-  ctx.font = `${fontSize}px Verdana`;
-  ctx.fillStyle = "grey";
-  const x = canvas.width / 4.5;
+  const fontSize = 95 * scaleRatio;
+  ctx.font = `${fontSize}px 'Cute Font'`;
+  ctx.fillStyle = "salmon";
+  ctx.textBaseline = "middle";
+  const x = canvas.width / 3.5;
   const y = canvas.height / 2;
   ctx.fillText("GAME OVER", x, y);
 }
@@ -146,21 +152,26 @@ function reset() {
 }
 
 function showStartGameText() {
-  const fontSize = 40 * scaleRatio;
-  ctx.font = `${fontSize}px Verdana`;
-  ctx.fillStyle = "grey";
-  const x = canvas.width / 14;
+  const fontSize = 63 * scaleRatio;
+  ctx.font = `${fontSize}px 'Cute Font'`;
+  ctx.fillStyle = "Salmon";
+  ctx.textBaseline = "middle";
+  const x = canvas.width / 15;
   const y = canvas.height / 2;
-  ctx.fillText("Tap Screen or Press Space To Start", x, y);
+  ctx.fillText("Tap Screen or Press Space To Start!", x, y);
 }
 
 function updateGameSpeed(frameTimeDelta) {
   gameSpeed += frameTimeDelta * GAME_SPEED_INCREMENT;
 }
 
+// In order to loop the game, I need to add a clear screen function to remove the old drawing and replace it with the new one
+const backgroundImage = new Image();
+backgroundImage.src = "images/background.png";
+
 function clearScreen() {
   ctx.fillStyle = "white";
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
 }
 
 function gameLoop(currentTime) {
@@ -175,7 +186,6 @@ function gameLoop(currentTime) {
   clearScreen();
 
   if (!gameOver && !waitingToStart) {
-    //Update game objects
     ground.update(gameSpeed, frameTimeDelta);
     caneController.update(gameSpeed, frameTimeDelta);
     player.update(gameSpeed, frameTimeDelta);
