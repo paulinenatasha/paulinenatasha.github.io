@@ -16,7 +16,7 @@ const GAME_WIDTH = 800;
 const GAME_HEIGHT = 200;
 const PLAYER_WIDTH = 94 / 1.5;
 const PLAYER_HEIGHT = 70 / 1.5;
-const MAX_JUMP_HEIGHT = GAME_HEIGHT;
+const MAX_JUMP_HEIGHT = 200;
 const MIN_JUMP_HEIGHT = 150;
 const GROUND_WIDTH = 2400;
 const GROUND_HEIGHT = 15;
@@ -197,7 +197,7 @@ function clearScreen() {
   );
 }
 
-// Main Game Loop
+// Main Game Loop Function
 function gameLoop(currentTime) {
   if (previousTime === null) {
     previousTime = currentTime;
