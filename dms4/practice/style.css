@@ -5,15 +5,14 @@
 
 html {
   background: radial-gradient(#f7a49e, #f8d7f6);
-}
-:root {
-  --col01: black;
-  --col02: pink;
-  --col03: skyblue;
+  align-items: center;
+  flex: auto;
+  padding: 20px;
+  gap: 15px;
 }
 
 body {
-  font-family: "poppins";
+  font-family: "cute font";
   color: #ae6f4d;
   text-align: center;
 }
