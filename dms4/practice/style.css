@@ -1,11 +1,14 @@
 * {
   box-sizing: border-box;
   margin: 0;
-  font-family: poppins;
 }
 
 :root {
   --col01: black;
   --col02: pink;
   --col03: skyblue;
+}
+
+body {
+  font-family: "poppins";
 }
