@@ -3,6 +3,9 @@
   margin: 0;
 }
 
+html {
+  background: radial-gradient(#f7a49e, #f8d7f6);
+}
 :root {
   --col01: black;
   --col02: pink;
@@ -11,4 +14,6 @@
 
 body {
   font-family: "poppins";
+  color: #ae6f4d;
+  text-align: center;
 }
