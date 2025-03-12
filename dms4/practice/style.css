@@ -4,4 +4,11 @@
 }
 
 :root {
+  --col01: black;
+  --col02: pink;
+  --col03: skyblue;
+}
+
+h1 {
+  font: poppins;
 }
