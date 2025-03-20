@@ -11,7 +11,7 @@
 }
 
 html {
-  color-scheme: light; /* Default light */
+  color-scheme: dark; /* Default dark theme */
   hanging-punctuation: first last; /* Not supported in Chrome */
 }
 

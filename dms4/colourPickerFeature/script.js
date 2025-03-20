@@ -26,11 +26,31 @@ function setSquareColour(newColour) {
 /* below is an example call to the function : because its just in the script it'll run when the page is loaded */
 setSquareColour("red");
 
-let colourPicker = document.getElementById("colour-picker");
+// let colourPicker = document.getElementById("colour-picker");
 
-colourPicker.addEventListener("input", pickingColour);
+// colourPicker.addEventListener("input", pickingColour);
 
-function pickingColour(e) {
-  //console.log(e.target.value);
-  setSquareColour(e.target.value);
-}
+// function pickingColour(e) {
+//   //console.log(e.target.value);
+//   setSquareColour(e.target.value);
+// }
+
+// let slider = document.getElementById("slider");
+// slider.addEventListener("input", pickingColour);
+
+// function pickingColour(e) {
+//   setSquareColour(e.target.value);
+// }
+
+let tempPicker = document.getElementById("slider");
+tempPicker.addEventListener("input", updateColour);
+
+const normalizedValue = (value - slider.min) / (slider.max - slider.min);
+const red = Math.round(255 * (1 - normalizedValue));
+const blue = Math.round(255 * normalizedValue);
+const color = `rgb(${red}, ${0}, ${blue})`;
+
+slider.addEventListener("input", (event) => {
+  updateThumbColor(event.target.value);
+});
+updateThumbColor(slider.value);
