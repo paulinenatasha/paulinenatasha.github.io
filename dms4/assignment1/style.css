@@ -1,14 +1,89 @@
-.header {
-  font-family: "Jersey 20";
-  text-align: center;
-  padding: 15px;
-  margin: 15px;
-  display: flex;
-  justify-content: space-between;
+body {
+  font-family: "pf-videotext";
 }
 
-.container {
-  padding: 15px;
+.header {
+  padding: 20px;
   display: flex;
-  align-items: flex-start;
+  justify-content: space-between;
+  font-size: 16px;
+  margin: 20px;
+  text-align: center;
+}
+
+.navbar {
+  background-color: white;
+  position: sticky;
+  margin-top: 24px;
+  padding: 10px;
+  font-size: 20px;
+}
+
+.navbar ul {
+  justify-content: space-between;
+  display: flex;
+  padding: 10px;
+  margin-inline-start: 10em;
+  margin-inline-end: 10em;
+}
+
+.title {
+  text-align: center;
+}
+
+h1,
+h2 {
+  display: flex;
+  justify-content: center;
+}
+
+h1 {
+  font-size: 96px;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+/* h3{font-weight: bold;} */
+
+.container {
+  border: solid white;
+  flex-direction: column;
+  width: auto;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  border-radius: 20px;
+  padding: 5px;
+  margin: 20px;
+}
+
+.category {
+  flex: 1;
+  display: flex;
+  padding: 15px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  font-weight: 500;
+  background-color: white;
+  color: black;
+  margin-bottom: 2px;
+  box-sizing: border-box;
+  max-width: 150rem;
+  font-weight: bold;
+}
+
+.answer {
+  flex: 1;
+  display: flex;
+  padding: 15px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  background-color: white;
+  color: black;
+  box-sizing: border-box;
+  max-width: 150rem;
+  flex-direction: column;
 }
