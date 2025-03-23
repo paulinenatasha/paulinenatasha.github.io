@@ -8,11 +8,12 @@ body {
   justify-content: space-between;
   font-size: 16px;
   margin: 20px;
+  margin-bottom: 0;
   text-align: center;
 }
 
 .navbar {
-  background-color: #d0adf0;
+  background-color: #dfdfdf;
   position: sticky;
   margin-top: 24px;
   padding: 10px;
@@ -41,15 +42,23 @@ h2 {
 }
 
 h1 {
-  font-size: 10em;
+  font-size: 13rem;
   font-weight: bold;
+  font-family: "Covered by your grace";
 }
 
 h2 {
   font-size: 2rem;
 }
 
-/* h3{font-weight: bold;} */
+h3 {
+  font-weight: bold;
+  font-size: 24px;
+}
+
+h4 {
+  font-size: 20px;
+}
 
 .container {
   border: solid white;
@@ -60,7 +69,7 @@ h2 {
   justify-content: center;
   border-radius: 20px;
   padding: 5px;
-  margin: 20px;
+  margin: 24px;
 }
 
 .category {
@@ -70,7 +79,7 @@ h2 {
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
   font-weight: 500;
-  background-color: white;
+  background-color: rgb(180, 180, 180);
   color: black;
   margin-bottom: 2px;
   box-sizing: border-box;
