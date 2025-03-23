@@ -12,19 +12,22 @@ body {
 }
 
 .navbar {
-  background-color: white;
+  background-color: #d0adf0;
   position: sticky;
   margin-top: 24px;
   padding: 10px;
   font-size: 20px;
+  text-align: center;
+  top: 0;
 }
 
 .navbar ul {
   justify-content: space-between;
   display: flex;
   padding: 10px;
-  margin-inline-start: 10em;
-  margin-inline-end: 10em;
+  margin: 20px;
+  margin-inline-start: 5em;
+  margin-inline-end: 5em;
 }
 
 .title {
@@ -38,12 +41,12 @@ h2 {
 }
 
 h1 {
-  font-size: 96px;
+  font-size: 10em;
   font-weight: bold;
 }
 
 h2 {
-  font-size: 24px;
+  font-size: 2rem;
 }
 
 /* h3{font-weight: bold;} */
