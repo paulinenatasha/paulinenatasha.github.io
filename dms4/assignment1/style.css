@@ -13,7 +13,7 @@ body {
 }
 
 .navbar {
-  background-color: #dfdfdf;
+  background-color: #9a9a9a;
   position: sticky;
   margin-top: 24px;
   padding: 10px;
@@ -29,6 +29,16 @@ body {
   margin: 20px;
   margin-inline-start: 5em;
   margin-inline-end: 5em;
+  list-style: none;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #d2d2d2;
 }
 
 .title {
@@ -79,7 +89,7 @@ h4 {
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
   font-weight: 500;
-  background-color: rgb(180, 180, 180);
+  background-color: #d0d0d0;
   color: black;
   margin-bottom: 2px;
   box-sizing: border-box;
