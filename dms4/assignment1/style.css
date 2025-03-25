@@ -116,3 +116,13 @@ h4 {
   max-width: 150rem;
   flex-direction: column;
 }
+
+/* Video */
+#video {
+  display: block;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  padding: 20px;
+}
