@@ -1,0 +1,22 @@
+html {
+  background: linear-gradient(
+    135deg,
+    #f9c8c2,
+    #c69491,
+    #96aca0,
+    #7d9094,
+    #60665a
+  );
+}
+
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
