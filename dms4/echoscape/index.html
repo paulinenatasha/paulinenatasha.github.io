@@ -7,6 +7,15 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="reset.css" />
     <link rel="stylesheet" href="script.js" />
+    <!-- Implementing Tone.js and Konva.js -->
+    <script src="http://unpkg.com/tone"></script>
+    <script src="https://unpkg.com/konva@9/konva.min.js"></script>
   </head>
-  <body></body>
+  <body>
+    <dialog id="introDialog">
+      <p>Tap to start audio</p>
+      <button id="dialogBtn" autofocus>Start</button>
+    </dialog>
+    <div id="container"></div>
+  </body>
 </html>
