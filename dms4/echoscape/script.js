@@ -24,3 +24,41 @@ function toneInit() {
     audioStarted = true;
   });
 }
+
+stage.on("tap", (e) => {
+  if (!audioStarted) return;
+
+  const pos = stage.getPointerPosition();
+
+  createCircle(pos.x, pos.y);
+
+  playNote();
+});
+
+//Create shapes (only circles for now, will expand more)
+function createCircle(x, y) {
+  const circle = new Konva.Circle({
+    x: 50,
+    y: 50,
+    radius: 20,
+    fill: rgb(249, 174, 123),
+  });
+}
+
+layer.add(circle);
+
+//Shapes animation
+circle.to({
+  radius: 100,
+  opacity: 0,
+  duration: 2,
+  easing: Konva.Easings.EaseOut,
+  onFinish: () => circle.destroy(),
+});
+
+layer.draw();
+
+// Play note function
+function playNote() {
+  synth.triggerAttackRelease("C4", "8n");
+}
