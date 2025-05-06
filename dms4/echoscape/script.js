@@ -1,8 +1,11 @@
-window.scale = ["C3", "D3", "E3", "G3", "A3", "C4", "D4", "E4", "G4", "A4"];
+let synth;
+let audioStarted = false;
+let stage;
+let layer;
+
+window.scale = ["C4", "D4", "E4", "G4", "A4", "C5", "D5", "E5", "G5", "A5"];
 
 window.addEventListener("DOMContentLoaded", () => {
-  synth = new Tone.Synth().toDestination();
-
   //Canvas
   stage = new Konva.Stage({
     container: "container",
@@ -12,34 +15,31 @@ window.addEventListener("DOMContentLoaded", () => {
 
   layer = new Konva.Layer();
   stage.add(layer);
+
+  stage.on("click", (e) => {
+    if (!audioStarted) return;
+    const pos = stage.getPointerPosition();
+    createCircle(pos.x, pos.y);
+    playNote(pos.x);
+  });
+
+  //Modal function
+  document.getElementById("introDialog").showModal();
 });
 
-let synth;
-let audioStarted = false;
-let stage;
-let layer;
-
-//Modal function
-document.getElementById("introDialog").showModal();
 document.getElementById("dialogBtn").addEventListener("click", async () => {
   await Tone.start();
-  audioStarted = true;
   document.getElementById("introDialog").close();
+  audioStarted = true;
+  synth = new Tone.Synth().toDestination();
 });
 
 //Tone.js function
 function getNoteFromPosition(x) {
   const screenWidth = window.innerWidth;
-  const noteIndex = Math.floor((x / screenWidth) * (window.scale.lenght - 1));
-  return window.scaale[Math.min(noteIndex, window.scale.length - 1)];
+  const noteIndex = Math.floor((x / screenWidth) * (window.scale.length - 1));
+  return window.scale[Math.min(noteIndex, window.scale.length - 1)];
 }
-
-stage.on("tap contentClick", (e) => {
-  if (!audioStarted) return;
-  const pos = stage.getPointerPosition();
-  createCircle(pos.x, pos.y);
-  playNote(pos.x);
-});
 
 //Create shapes (only circles for now, will expand more)
 function createCircle(x, y) {
@@ -57,7 +57,7 @@ function createCircle(x, y) {
   circle.to({
     radius: 100,
     opacity: 0,
-    duration: 2,
+    duration: 5,
     easing: Konva.Easings.EaseOut,
     onFinish: () => circle.destroy(),
   });
@@ -67,5 +67,6 @@ function createCircle(x, y) {
 
 // Play note function
 function playNote(x) {
+  const note = getNoteFromPosition(x);
   synth.triggerAttackRelease(note, "8n");
 }
