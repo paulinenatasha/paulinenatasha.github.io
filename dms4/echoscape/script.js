@@ -1,4 +1,4 @@
-const synth = new TouchEvent.Synth().toDestination();
+const synth = new Tone.Synth().toDestination();
 let audioStarted = false;
 
 //Canvas
@@ -20,12 +20,12 @@ document.getElementById("introDialog").showModal();
 
 //Tone.js function
 function toneInit() {
-  toneInit.start().then(() => {
+  Tone.start().then(() => {
     audioStarted = true;
   });
 }
 
-stage.on("tap", (e) => {
+stage.on("tap contentClick", (e) => {
   if (!audioStarted) return;
 
   const pos = stage.getPointerPosition();
@@ -38,25 +38,25 @@ stage.on("tap", (e) => {
 //Create shapes (only circles for now, will expand more)
 function createCircle(x, y) {
   const circle = new Konva.Circle({
-    x: 50,
-    y: 50,
+    x: x,
+    y: y,
     radius: 20,
-    fill: rgb(249, 174, 123),
+    fill: "rgb(249, 174, 123)",
   });
+
+  layer.add(circle);
+
+  //Shapes animation
+  circle.to({
+    radius: 100,
+    opacity: 0,
+    duration: 2,
+    easing: Konva.Easings.EaseOut,
+    onFinish: () => circle.destroy(),
+  });
+
+  layer.draw();
 }
-
-layer.add(circle);
-
-//Shapes animation
-circle.to({
-  radius: 100,
-  opacity: 0,
-  duration: 2,
-  easing: Konva.Easings.EaseOut,
-  onFinish: () => circle.destroy(),
-});
-
-layer.draw();
 
 // Play note function
 function playNote() {
