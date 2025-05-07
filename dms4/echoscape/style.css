@@ -39,6 +39,49 @@ body {
   height: 100vh;
 }
 
+#instrument-buttons {
+  position: fixed;
+  top: 50%;
+  left: 16px;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  z-index: 10;
+}
+
+.instrument-btn {
+  padding: 1.1em 1.4em;
+  font-size: 1.1em;
+  border: none;
+  border-radius: 12px;
+  background: #cfd8dc;
+  color: #333;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: background 0.2s, color 0.2s;
+  outline: none;
+}
+
+.instrument-btn.active,
+.instrument-btn:focus {
+  background: #8a9ba8;
+  color: #fff;
+}
+
+#piano-button.active {
+  background: #8a9ba8;
+  color: #fff;
+}
+#flute-button.active {
+  background: #a6b6c9;
+  color: #fff;
+}
+#chime-button.active {
+  background: #f6c6b4;
+  color: #fff;
+}
+
 dialog {
   border: none;
   outline: none;
