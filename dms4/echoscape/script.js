@@ -83,9 +83,9 @@ function getNoteFromPosition(x) {
 //Create shapes (only circles for now, will expand more)
 function createCircle(x, y) {
   const instrumentColors = {
-    piano: "#8a9ba8",
-    flute: "#a6b6c9",
-    chime: "#f6c6b4",
+    piano: "#e6a5b7",
+    flute: "#abd8e7",
+    chime: "#f7cfbb",
   };
   const circle = new Konva.Circle({
     x: x,

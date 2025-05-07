@@ -51,12 +51,12 @@ body {
 }
 
 .instrument-btn {
-  padding: 1.1em 1.4em;
+  padding: 1em;
   font-size: 1.1em;
   border: none;
   border-radius: 12px;
-  background: #cfd8dc;
-  color: #333;
+  background: #d5c5f1;
+  color: white;
   cursor: pointer;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   transition: background 0.2s, color 0.2s;
@@ -65,20 +65,20 @@ body {
 
 .instrument-btn.active,
 .instrument-btn:focus {
-  background: #8a9ba8;
+  background: #b69bc1;
   color: #fff;
 }
 
 #piano-button.active {
-  background: #8a9ba8;
+  background: #e6a5b7;
   color: #fff;
 }
 #flute-button.active {
-  background: #a6b6c9;
+  background: #abd8e7;
   color: #fff;
 }
 #chime-button.active {
-  background: #f6c6b4;
+  background: #f7cfbb;
   color: #fff;
 }
 
