@@ -42,7 +42,7 @@ body {
 #instrument-buttons {
   position: fixed;
   top: 50%;
-  left: 16px;
+  left: 3rem;
   transform: translateY(-50%);
   display: flex;
   flex-direction: column;
@@ -55,12 +55,13 @@ body {
   font-size: 1.1em;
   border: none;
   border-radius: 12px;
-  background: #d5c5f1;
+  background: linear-gradient(#d5c5f1, #e0d6f1);
   color: white;
   cursor: pointer;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   transition: background 0.2s, color 0.2s;
   outline: none;
+  align-items: center;
 }
 
 .instrument-btn.active,
@@ -70,15 +71,15 @@ body {
 }
 
 #piano-button.active {
-  background: #e6a5b7;
+  background: linear-gradient(#e6a5b7, #f4c6d3);
   color: #fff;
 }
 #flute-button.active {
-  background: #abd8e7;
+  background: linear-gradient(#a6caec, #c1d7f1);
   color: #fff;
 }
 #chime-button.active {
-  background: #f7cfbb;
+  background: linear-gradient(#f7cfbb, #f5e1d7);
   color: #fff;
 }
 
@@ -86,17 +87,21 @@ dialog {
   border: none;
   outline: none;
   border-radius: 16px;
-  padding: 2em;
-  background: #f5cfe9;
-  color: black;
+  padding: 1.5em 3em 2em 3em;
+  background: linear-gradient(#b9b0d6, #d3cfeb);
+  color: #716698;
   justify-content: center;
+  text-align: center;
+  font-family: "quicksand";
 }
 
 #dialogBtn {
   border: none;
-  padding: 2em;
+  outline: none;
+  padding: 1em 3em;
   font-size: 1rem;
-  border-radius: 5px;
-  background: #b9b0d6;
-  color: white;
+  border-radius: 8px;
+  background: linear-gradient(#b9b0d6, #c5bde0);
+  color: #edebfa;
+  font-family: "quicksand";
 }

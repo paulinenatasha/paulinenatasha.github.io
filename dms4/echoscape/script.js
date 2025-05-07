@@ -29,16 +29,16 @@ window.addEventListener("DOMContentLoaded", () => {
   }).chain(delay, reverb);
 
   flute = new Tone.FMSynth({
-    harmonicity: 8,
+    harmonicity: 5,
     modulationIndex: 5,
-    envelope: { attack: 0.2, decay: 0.3, sustain: 0.4, release: 1.5 },
+    envelope: { attack: 0.1, decay: 0.4, sustain: 0.3, release: 1.5 },
   }).chain(delay, reverb);
 
   chime = new Tone.MembraneSynth({
     harmonicity: 8,
     modulationIndex: 30,
     frequency: 800,
-    envelope: { attack: 0.05, decay: 1, release: 1 },
+    envelope: { attack: 0.001, decay: 3, release: 2 },
   }).chain(delay, reverb);
 
   stage.on("click", (e) => {
