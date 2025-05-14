@@ -6,7 +6,7 @@ let reverb;
 let delay;
 let currentInstrument = "piano";
 
-window.scale = ["C4", "D4", "E4", "G4", "A4", "C5", "D5", "E5", "G5", "A5"];
+window.scale = ["C3", "D3", "E3", "G3", "A3", "C4", "D4", "E4", "G4", "A4"];
 
 window.addEventListener("DOMContentLoaded", () => {
   //Canvas
@@ -20,12 +20,29 @@ window.addEventListener("DOMContentLoaded", () => {
   stage.add(layer);
 
   reverb = new Tone.Reverb({ decay: 5, wet: 0.5 }).toDestination();
-  delay = new Tone.PingPongDelay("8n", 0.5).toDestination();
+  delay = new Tone.PingPongDelay({
+    delayTime: "8n",
+    feedback: 0.2,
+    wet: 0.1,
+  }).toDestination();
 
   //Instruments
-  piano = new Tone.AMSynth({
-    harmonicity: 3,
-    envelope: { attack: 0.1, decay: 0.4, sustain: 0.3, release: 2 },
+  // piano = new Tone.AMSynth({
+  //   harmonicity: 3,
+  //   envelope: { attack: 0.1, decay: 0.4, sustain: 0.3, release: 2 },
+  // }).chain(delay, reverb);
+
+  // var piano = SampleLibrary.load({ instruments: "piano", minify: true });
+  piano = new Tone.Sampler({
+    urls: {
+      C4: "C4.mp3",
+      D4: "D4.mp3",
+      E4: "E4.mp3",
+      G4: "G4.mp3",
+      A4: "A4.mp3",
+    },
+    release: 1,
+    baseUrl: "sounds/",
   }).chain(delay, reverb);
 
   flute = new Tone.FMSynth({
@@ -34,14 +51,22 @@ window.addEventListener("DOMContentLoaded", () => {
     envelope: { attack: 0.1, decay: 0.4, sustain: 0.3, release: 1.5 },
   }).chain(delay, reverb);
 
-  chime = new Tone.MembraneSynth({
-    harmonicity: 8,
-    modulationIndex: 30,
-    frequency: 800,
-    envelope: { attack: 0.001, decay: 3, release: 2 },
+  chime = new Tone.Sampler({
+    urls: {
+      C4: "ChimeC4.mp3",
+    },
+    release: 1,
+    baseUrl: "sounds/",
   }).chain(delay, reverb);
 
-  stage.on("click", (e) => {
+  // chime = new Tone.MembraneSynth({
+  //   harmonicity: 8,
+  //   modulationIndex: 30,
+  //   frequency: 800,
+  //   envelope: { attack: 0.001, decay: 3, release: 2 },
+  // }).chain(delay, reverb);
+
+  stage.on("mousedown", (e) => {
     if (!audioStarted) return;
     const pos = stage.getPointerPosition();
     if (!pos) return;
