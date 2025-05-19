@@ -146,10 +146,35 @@ window.addEventListener("resize", () => {
 
 // Volume Slider
 const volumeSlider = document.querySelector(".slider");
-let previousVolume = 100;
 volumeSlider.addEventListener("input", toggleVolume);
 
 function toggleVolume() {
   const dbValue = Tone.gainToDb(volumeSlider.value / 100);
   Tone.Destination.volume.value = dbValue;
 }
+
+//Dropdown Function
+document.addEventListener("DOMContentLoaded", function () {
+  const dropbtn = document.getElementById("dropbtn");
+  const dropdownContent = document.getElementById("theme-dropdown");
+
+  dropbtn.addEventListener("mousedown", function (event) {
+    event.stopPropagation();
+    dropdownContent.classList.toggle("show");
+  });
+
+  window.addEventListener("mousedown", function (event) {
+    if (!dropbtn.contains(event.target)) {
+    }
+  });
+
+  // Theme Selection
+  dropdownContent.querySelectorAll("button[data-theme]").forEach((btn) => {
+    btn.addEventListener("mousedown", function () {
+      const theme = btn.getAttribute("data-theme");
+      document.body.classList.remove("theme-garden", "theme-galaxy");
+      document.body.classList.add("theme-pastel");
+      dropdownContent.classList.remove("show");
+    });
+  });
+});
