@@ -158,6 +158,9 @@ document.addEventListener("DOMContentLoaded", function () {
   const dropbtn = document.getElementById("dropbtn");
   const dropdownContent = document.getElementById("theme-dropdown");
 
+  document.body.classList.remove("theme-garden", "theme-galaxy");
+  document.body.classList.add("theme-ocean");
+
   dropbtn.addEventListener("mousedown", function (event) {
     event.stopPropagation();
     dropdownContent.classList.toggle("show");
@@ -165,6 +168,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   window.addEventListener("mousedown", function (event) {
     if (!dropbtn.contains(event.target)) {
+      dropdownContent.classList.remove("show");
     }
   });
 
@@ -172,8 +176,12 @@ document.addEventListener("DOMContentLoaded", function () {
   dropdownContent.querySelectorAll("button[data-theme]").forEach((btn) => {
     btn.addEventListener("mousedown", function () {
       const theme = btn.getAttribute("data-theme");
-      document.body.classList.remove("theme-garden", "theme-galaxy");
-      document.body.classList.add("theme-pastel");
+      document.body.classList.remove(
+        "theme-ocean",
+        "theme-garden",
+        "theme-galaxy"
+      );
+      document.body.classList.add("theme-" + theme);
       dropdownContent.classList.remove("show");
     });
   });
