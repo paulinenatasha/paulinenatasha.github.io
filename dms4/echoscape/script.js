@@ -6,6 +6,28 @@ let reverb;
 let delay;
 let currentInstrument = "piano";
 
+//Theme Styling (Shapes and Colors)
+const themeShapeStyle = {
+  ocean: {
+    piano: { shape: "circle", color: "#699ab8" },
+    flute: { shape: "circle", color: "#77c2c2" },
+    chime: { shape: "circle", color: "#cab093" },
+  },
+  garden: {
+    piano: { shape: "flower", color: "#79a67c" },
+    flute: { shape: "flower", color: "#f7a49e" },
+    chime: { shape: "flower", color: "#bca283" },
+  },
+  galaxy: {
+    piano: { shape: "star", color: "#bda6e0" },
+    flute: { shape: "star", color: "#95b8dc" },
+    chime: { shape: "star", color: "#f7b3ae" },
+  },
+};
+
+let currentTheme = "ocean";
+
+//Note Scale
 window.scale = ["C3", "D3", "E3", "G3", "A3", "C4", "D4", "E4", "G4", "A4"];
 
 window.addEventListener("DOMContentLoaded", () => {
@@ -59,14 +81,14 @@ window.addEventListener("DOMContentLoaded", () => {
     if (!pos) return;
 
     const note = getNoteFromPosition(pos.x);
-    createCircle(pos.x, pos.y);
+    createShape(pos.x, pos.y);
     playSound(note, currentInstrument);
   });
 });
 
 //Instrument Buttons
 document.querySelectorAll(".instrument-btn").forEach((btn) => {
-  btn.addEventListener("click", (e) => {
+  btn.addEventListener("mousedown", (e) => {
     document
       .querySelectorAll(".instrument-btn")
       .forEach((b) => b.classList.remove("active"));
@@ -93,31 +115,97 @@ function getNoteFromPosition(x) {
 }
 
 //Create shapes
-function createCircle(x, y) {
-  const instrumentColors = {
-    piano: "#e6a5b7",
-    flute: "#abd8e7",
-    chime: "#f7cfbb",
-  };
-  const circle = new Konva.Circle({
-    x: x,
-    y: y,
-    radius: 20,
-    fill: instrumentColors[currentInstrument],
-    opacity: 0.8,
-  });
+// function createCircle(x, y) {
+//   const style = themeShapeStyle[currentTheme][currentInstrument];
+//   const instrumentColors = {
+//     piano: "#e6a5b7",
+//     flute: "#abd8e7",
+//     chime: "#f7cfbb",
+//   };
+//   const circle = new Konva.Circle({
+//     x: x,
+//     y: y,
+//     radius: 20,
+//     fill: instrumentColors[currentInstrument],
+//     opacity: 0.8,
+//   });
 
-  layer.add(circle);
+//   layer.add(circle);
 
-  //Shapes animation
-  circle.to({
-    radius: 100,
-    opacity: 0,
-    duration: 5,
-    easing: Konva.Easings.EaseOut,
-    onFinish: () => circle.destroy(),
-  });
+function createShape(x, y) {
+  const style = themeShapeStyle[currentTheme][currentInstrument];
 
+  const minSize = 15,
+    maxSize = 35;
+  const size = Math.random() * (maxSize - minSize) + minSize;
+  const rotation = Math.random() * 360;
+
+  let shape;
+
+  if (style.shape === "circle") {
+    shape = new Konva.Circle({
+      x: x,
+      y: y,
+      radius: 20,
+      fill: style.color,
+      opacity: 0.8,
+    });
+    shape.to({
+      radius: 100,
+      opacity: 0,
+      duration: 5,
+      easing: Konva.Easings.EaseOut,
+      onFinish: () => shape.destroy(),
+    });
+  } else if (style.shape === "flower") {
+    shape = new Konva.Ellipse({
+      x: x,
+      y: y,
+      radiusX: 10,
+      radiusY: 20,
+      fill: style.color,
+      opacity: 0.8,
+      rotation: rotation,
+    });
+    shape.to({
+      radiusX: 50,
+      radiusY: 100,
+      opacity: 0,
+      duration: 5,
+      easing: Konva.Easings.EaseOut,
+      onFinish: () => shape.destroy(),
+    });
+  } else if (style.shape === "star") {
+    shape = new Konva.Star({
+      x: x,
+      y: y,
+      numPoints: 6,
+      innerRadius: 10,
+      outerRadius: 20,
+      fill: style.color,
+      opacity: 0.8,
+      rotation: rotation,
+    });
+    shape.to({
+      innerRadius: 50,
+      outerRadius: 100,
+      opacity: 0,
+      duration: 5,
+      easing: Konva.Easings.EaseOut,
+      onFinish: () => shape.destroy(),
+    });
+  }
+
+  // //Shapes animation
+  // shape.to({
+  //   radius: 100,
+  //   opacity: 0,
+  //   duration: 5,
+  //   easing: Konva.Easings.EaseOut,
+  //   onFinish: () => shape.destroy(),
+  // });
+
+  layer.add(shape);
   layer.draw();
 }
 
@@ -182,6 +270,7 @@ document.addEventListener("DOMContentLoaded", function () {
         "theme-galaxy"
       );
       document.body.classList.add("theme-" + theme);
+      currentTheme = theme;
       dropdownContent.classList.remove("show");
     });
   });

@@ -74,30 +74,69 @@ body.theme-galaxy {
 }
 
 /* Ocean Instrument Button */
-body.theme-ocean .instrument-btn {
-  background: linear-gradient(#dfceb9, #f0ebd8);
+body.theme-ocean #piano-button {
+  background: linear-gradient(#699ab8, #a1cacb);
+}
+body.theme-ocean #piano-button.active {
+  background: linear-gradient(#46618a, #7ca5c6);
 }
 
-body.theme-ocean .instrument-btn.active {
-  background: linear-gradient(#66a1bc, #c3dfde);
+body.theme-ocean #flute-button {
+  background: linear-gradient(#77c2c2, #b5e3e8);
+}
+body.theme-ocean #flute-button.active {
+  background: linear-gradient(#3a8f8f, #78bfc6);
+}
+
+body.theme-ocean #chime-button {
+  background: linear-gradient(#cab093, #e0d7cf);
+}
+body.theme-ocean #chime-button.active {
+  background: linear-gradient(#b4937a, #d8c7a7);
 }
 
 /* Garden Instrument Button */
-body.theme-garden .instrument-btn {
-  background: linear-gradient(#b0c29d, #b8d8c6);
+body.theme-garden #piano-button {
+  background: linear-gradient(#9ac99d, #c8e3d3);
+}
+body.theme-garden #piano-button.active {
+  background: linear-gradient(#79a67c, #b8d8c6);
 }
 
-body.theme-garden .instrument-btn.active {
-  background: linear-gradient(#dc9490, #f9c8c2);
+body.theme-garden #flute-button {
+  background: linear-gradient(#f7a49e, #f7c6c2);
+}
+body.theme-garden #flute-button.active {
+  background: linear-gradient(#dc9089, #efb9b4);
+}
+
+body.theme-garden #chime-button {
+  background: linear-gradient(#bdb099, #d9d3c2);
+}
+body.theme-garden #chime-button.active {
+  background: linear-gradient(#bca283, #cfc4ad);
 }
 
 /* Galaxy Instrument Button */
-body.theme-galaxy .instrument-btn {
-  background: linear-gradient(#a6b8e0, #bbd3eb);
+body.theme-galaxy #piano-button {
+  background: linear-gradient(#bda6e0, #d5cdef);
+}
+body.theme-galaxy #piano-button.active {
+  background: linear-gradient(#8873c6, #ccc3ea);
 }
 
-body.theme-galaxy .instrument-btn.active {
-  background: linear-gradient(#b39fea, #cdbbef);
+body.theme-galaxy #flute-button {
+  background: linear-gradient(#adcae9, #cfe6f5);
+}
+body.theme-galaxy #flute-button.active {
+  background: linear-gradient(#95b8dc, #bfdbf3);
+}
+
+body.theme-galaxy #chime-button {
+  background: linear-gradient(#f7b3ae, #f8d1cd);
+}
+body.theme-galaxy #chime-button.active {
+  background: linear-gradient(#ea8f87, #efbeba);
 }
 
 /* #piano-button.active {
@@ -160,7 +199,6 @@ dialog {
   appearance: none;
   width: 100%;
   height: 10px;
-  background: linear-gradient(to left, #b9b0d6, #c5bde0);
   -webkit-transition: 0, 2s;
   transition: 0.2s;
   border-radius: 10px;
@@ -170,8 +208,21 @@ dialog {
   appearance: none;
   width: 10px;
   height: 20px;
-  background: #f6f1eb;
   border-radius: 10px;
+  background: #f5efeb;
+}
+
+/* Ocean Slider */
+body.theme-ocean .slider {
+  background: linear-gradient(to left, #83b0cb, #b4d8d8);
+}
+/* Garden Slider */
+body.theme-garden .slider {
+  background: linear-gradient(to left, #bca283, #cfc4ad);
+}
+/* Galaxy Slider */
+body.theme-galaxy .slider {
+  background: linear-gradient(to left, #b39fea, #cdbbef);
 }
 
 /* Dropdown Styling */
