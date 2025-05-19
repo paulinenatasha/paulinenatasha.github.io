@@ -107,9 +107,23 @@ dialog {
 }
 
 /* Slider Styling */
-.slide-container {
-  width: 5rem;
-  margin: 5px;
+.volume-slider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 95vw;
+  z-index: 1000;
+}
+
+#slider-container {
+  width: 10rem;
+  margin: 10px;
+  position: relative;
+  z-index: 1;
 }
 
 .slider {

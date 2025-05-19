@@ -27,12 +27,6 @@ window.addEventListener("DOMContentLoaded", () => {
   }).toDestination();
 
   //Instruments
-  // piano = new Tone.AMSynth({
-  //   harmonicity: 3,
-  //   envelope: { attack: 0.1, decay: 0.4, sustain: 0.3, release: 2 },
-  // }).chain(delay, reverb);
-
-  // var piano = SampleLibrary.load({ instruments: "piano", minify: true });
   piano = new Tone.Sampler({
     urls: {
       C4: "C4.mp3",
@@ -58,13 +52,6 @@ window.addEventListener("DOMContentLoaded", () => {
     release: 1,
     baseUrl: "sounds/",
   }).chain(delay, reverb);
-
-  // chime = new Tone.MembraneSynth({
-  //   harmonicity: 8,
-  //   modulationIndex: 30,
-  //   frequency: 800,
-  //   envelope: { attack: 0.001, decay: 3, release: 2 },
-  // }).chain(delay, reverb);
 
   stage.on("mousedown", (e) => {
     if (!audioStarted) return;
@@ -98,14 +85,14 @@ document.getElementById("dialogBtn").addEventListener("click", async () => {
   audioStarted = true;
 });
 
-//Tone.js function
+//Mapping
 function getNoteFromPosition(x) {
   const screenWidth = window.innerWidth;
   const noteIndex = Math.floor((x / screenWidth) * (window.scale.length - 1));
   return window.scale[Math.min(noteIndex, window.scale.length - 1)];
 }
 
-//Create shapes (only circles for now, will expand more)
+//Create shapes
 function createCircle(x, y) {
   const instrumentColors = {
     piano: "#e6a5b7",
@@ -121,12 +108,6 @@ function createCircle(x, y) {
   });
 
   layer.add(circle);
-
-  // let pointer;
-  // if (stage) {
-  //   pointer = stage.getPointerPosition();
-  // }
-  // if (!pointer) return;
 
   //Shapes animation
   circle.to({
@@ -162,3 +143,13 @@ window.addEventListener("resize", () => {
     stage.height(window.innerHeight);
   }
 });
+
+// Volume Slider
+const volumeSlider = document.querySelector(".slider");
+let previousVolume = 100;
+volumeSlider.addEventListener("input", toggleVolume);
+
+function toggleVolume() {
+  const dbValue = Tone.gainToDb(volumeSlider.value / 100);
+  Tone.Destination.volume.value = dbValue;
+}
