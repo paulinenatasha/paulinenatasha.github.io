@@ -139,13 +139,14 @@ body.theme-galaxy #chime-button.active {
   background: linear-gradient(#ea8f87, #efbeba);
 }
 
+/* Dialog Button */
 dialog {
   border: none;
   outline: none;
   border-radius: 16px;
   padding: 1.5em 3em 2em 3em;
-  background: linear-gradient(#b9b0d6, #d3cfeb);
-  color: #716698;
+  background: linear-gradient(#699ab8, #a1cacb);
+  color: #ebeaf2;
   justify-content: center;
   text-align: center;
   font-family: "quicksand";
@@ -157,7 +158,7 @@ dialog {
   padding: 1em 3em;
   font-size: 1rem;
   border-radius: 8px;
-  background: linear-gradient(#b9b0d6, #c5bde0);
+  background: linear-gradient(#699ab8, #abd1d2);
   color: #edebfa;
   font-family: "quicksand";
 }
