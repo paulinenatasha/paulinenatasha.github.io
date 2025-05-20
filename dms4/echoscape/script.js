@@ -59,6 +59,7 @@ window.addEventListener("DOMContentLoaded", () => {
     },
     release: 1,
     baseUrl: "sounds/",
+    volume: -15,
   }).chain(delay, reverb);
 
   flute = new Tone.FMSynth({
@@ -73,6 +74,7 @@ window.addEventListener("DOMContentLoaded", () => {
     },
     release: 1,
     baseUrl: "sounds/",
+    volume: -20,
   }).chain(delay, reverb);
 
   stage.on("mousedown", (e) => {
@@ -104,6 +106,7 @@ document.getElementById("piano-button").classList.add("active");
 document.getElementById("dialogBtn").addEventListener("click", async () => {
   await Tone.start();
   document.getElementById("introDialog").close();
+  backgroundSound[currentBgTheme].start();
   audioStarted = true;
 });
 
@@ -115,23 +118,6 @@ function getNoteFromPosition(x) {
 }
 
 //Create shapes
-// function createCircle(x, y) {
-//   const style = themeShapeStyle[currentTheme][currentInstrument];
-//   const instrumentColors = {
-//     piano: "#e6a5b7",
-//     flute: "#abd8e7",
-//     chime: "#f7cfbb",
-//   };
-//   const circle = new Konva.Circle({
-//     x: x,
-//     y: y,
-//     radius: 20,
-//     fill: instrumentColors[currentInstrument],
-//     opacity: 0.8,
-//   });
-
-//   layer.add(circle);
-
 function createShape(x, y) {
   const style = themeShapeStyle[currentTheme][currentInstrument];
 
@@ -197,14 +183,6 @@ function createShape(x, y) {
   }
 
   // //Shapes animation
-  // shape.to({
-  //   radius: 100,
-  //   opacity: 0,
-  //   duration: 5,
-  //   easing: Konva.Easings.EaseOut,
-  //   onFinish: () => shape.destroy(),
-  // });
-
   layer.add(shape);
   layer.draw();
 }
@@ -231,6 +209,28 @@ window.addEventListener("resize", () => {
     stage.height(window.innerHeight);
   }
 });
+
+//Background Ambient
+const backgroundSound = {
+  ocean: new Tone.Player({
+    url: "sounds/ocean.mp3",
+    loop: true,
+    autostart: false,
+    volume: -15,
+  }).toDestination(),
+  garden: new Tone.Player({
+    url: "sounds/garden.mp3",
+    loop: true,
+    autostart: false,
+  }).toDestination(),
+  galaxy: new Tone.Player({
+    url: "sounds/galaxy.mp3",
+    loop: true,
+    autostart: false,
+    volume: -35,
+  }).toDestination(),
+};
+let currentBgTheme = "ocean";
 
 // Volume Slider
 const volumeSlider = document.querySelector(".slider");
@@ -264,6 +264,9 @@ document.addEventListener("DOMContentLoaded", function () {
   dropdownContent.querySelectorAll("button[data-theme]").forEach((btn) => {
     btn.addEventListener("mousedown", function () {
       const theme = btn.getAttribute("data-theme");
+
+      backgroundSound[currentBgTheme].stop();
+
       document.body.classList.remove(
         "theme-ocean",
         "theme-garden",
@@ -271,6 +274,9 @@ document.addEventListener("DOMContentLoaded", function () {
       );
       document.body.classList.add("theme-" + theme);
       currentTheme = theme;
+      currentBgTheme = theme;
+
+      backgroundSound[currentBgTheme].start();
       dropdownContent.classList.remove("show");
     });
   });
