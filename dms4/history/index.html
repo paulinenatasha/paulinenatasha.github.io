@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Echoscape</title>
-    <link rel="icon" href="favicon.png" />
     <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -19,19 +18,16 @@
   </head>
   <body>
     <dialog id="introDialog">
-      <h1>Welcome to Echoscape</h1>
-      <p>Discover your own calming sound world</p>
-      <p>Tap to begin your journey</p>
-      <br />
+      <p>Tap to start audio</p>
       <button id="dialogBtn" autofocus>Start</button>
     </dialog>
 
-    <!-- Instrument Buttons-->
+    <!-- Instrument Buttons (might add something else)-->
     <div class="soundBtn" id="instrument-buttons">
       <img
         id="piano-button"
         class="instrument-btn"
-        src="https://img.icons8.com/fluency-systems-regular/30/f5efeb/piano.png"
+        src="https://img.icons8.com/fluency-systems-filled/30/piano.png"
         alt="piano-icon"
         data-sound="piano"
         tabindex="0"
@@ -40,7 +36,7 @@
       <img
         id="flute-button"
         class="instrument-btn"
-        src="https://img.icons8.com/fluency-systems-filled/30/f5efeb/flute.png"
+        src="https://img.icons8.com/fluency-systems-filled/30/flute.png"
         alt="flute-icon"
         data-sound="flute"
         tabindex="0"
@@ -49,44 +45,14 @@
       <img
         id="chime-button"
         class="instrument-btn"
-        src="https://img.icons8.com/fluency-systems-filled/30/f5efeb/wind-chime-icon.png"
+        src="https://img.icons8.com/fluency-systems-filled/30/wind-chime-icon.png"
         alt="chime-icon"
         data-sound="chime"
         tabindex="0"
       />
     </div>
 
-    <!-- Volume Slider -->
-    <div class="volume-slider">
-      <input
-        class="slider"
-        id="slider-container"
-        type="range"
-        min="0"
-        max="100"
-        step="1"
-        alt="volume slider"
-      />
-    </div>
-
     <div id="container"></div>
-
-    <!-- Dropdown Menu -->
-    <div class="dropdown">
-      <button id="dropbtn" class="dropbtn">
-        <img
-          id="dropdown"
-          src="https://img.icons8.com/fluency-systems-regular/35/ffffff/grip-lines.png"
-          alt="dropdown-icon"
-        />
-      </button>
-      <div id="theme-dropdown" class="dropdown-content">
-        <button data-theme="ocean">Ocean</button>
-        <button data-theme="garden">Garden</button>
-        <button data-theme="galaxy">Galaxy</button>
-      </div>
-    </div>
-
     <script src="script.js"></script>
   </body>
 </html>

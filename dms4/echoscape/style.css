@@ -97,7 +97,7 @@ body.theme-ocean #chime-button.active {
 
 /* Garden Instrument Button */
 body.theme-garden #piano-button {
-  background: linear-gradient(#9ac99d, #c8e3d3);
+  background: linear-gradient(#8cb88f, #c8e3d3);
 }
 body.theme-garden #piano-button.active {
   background: linear-gradient(#79a67c, #b8d8c6);
@@ -138,19 +138,6 @@ body.theme-galaxy #chime-button {
 body.theme-galaxy #chime-button.active {
   background: linear-gradient(#ea8f87, #efbeba);
 }
-
-/* #piano-button.active {
-  background: linear-gradient(#e6a5b7, #f4c6d3);
-  color: #fff;
-}
-#flute-button.active {
-  background: linear-gradient(#a6caec, #c1d7f1);
-  color: #fff;
-}
-#chime-button.active {
-  background: linear-gradient(#f7cfbb, #f5e1d7);
-  color: #fff;
-} */
 
 dialog {
   border: none;

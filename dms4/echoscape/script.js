@@ -59,7 +59,7 @@ window.addEventListener("DOMContentLoaded", () => {
     },
     release: 1,
     baseUrl: "sounds/",
-    volume: -15,
+    volume: -5,
   }).chain(delay, reverb);
 
   flute = new Tone.FMSynth({
