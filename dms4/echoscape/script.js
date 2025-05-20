@@ -19,8 +19,8 @@ const themeShapeStyle = {
     chime: { shape: "flower", color: "#bca283" },
   },
   galaxy: {
-    piano: { shape: "star", color: "#bda6e0" },
-    flute: { shape: "star", color: "#95b8dc" },
+    piano: { shape: "star", color: "#8873c6" },
+    flute: { shape: "star", color: "#65a1d4" },
     chime: { shape: "star", color: "#f7b3ae" },
   },
 };
@@ -240,6 +240,8 @@ function toggleVolume() {
   const dbValue = Tone.gainToDb(volumeSlider.value / 100);
   Tone.Destination.volume.value = dbValue;
 }
+
+toggleVolume();
 
 //Dropdown Function
 document.addEventListener("DOMContentLoaded", function () {
