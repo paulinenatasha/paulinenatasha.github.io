@@ -3,7 +3,7 @@ html {
   margin: 0;
   font-family: Arial, sans-serif;
   background: linear-gradient(135deg, #f7a49e, #f7c6c2, #d9d7c2, #fceeed);
-  background-size: 600% 600%;
+  background-size: 700% 700%;
   animation: gradientBG 15s ease infinite;
 }
 
@@ -30,6 +30,16 @@ html {
   text-align: center;
 }
 
+/* Video */
+#video {
+  display: block;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  margin-top: 0;
+}
+
 /* Text */
 h1 {
   font-size: 10rem;
@@ -38,7 +48,6 @@ h1 {
 h2 {
   font-size: 1.5rem;
   margin-top: -10px;
-  margin-bottom: 50px;
   color: #b6a893;
 }
 
